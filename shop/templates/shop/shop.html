@@ -1,0 +1,802 @@
+{% extends 'shared/_layout.html' %}
+{% load thumbnail %}
+
+{% load render_partial %}
+
+{% block title %}
+    فروشگاه
+{% endblock %}
+
+{% block content %}
+    <div class="col-xl-3 col-lg-4">
+        <div class="product-widget mb-30">
+
+            {% render_partial 'shop.views.product_categories_component' %}
+
+        </div>
+        <div class="product-widget mb-30">
+            <h5 class="pt-title">فیلتر قیمت</h5>
+            <div class="price__slider mt-30">
+                <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                    <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div>
+                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+                          style="left: 21.1538%;"></span><span tabindex="0"
+                                                               class="ui-slider-handle ui-corner-all ui-state-default"
+                                                               style="left: 100%;"></span>
+                    <div class="ui-slider-range ui-corner-all ui-widget-header"
+                         style="left: 21.1538%; width: 78.8462%;"></div>
+                </div>
+                <div>
+                    <form action="#" class="s-form mt-20">
+                        <input type="text" id="amount" readonly="">
+                        <button type="submit" class="tp-btn-square-lg">فیلتر</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="product-widget mb-30">
+            <h5 class="pt-title">انتخاب اندازه</h5>
+            <div class="widget-category-list mt-20">
+                <form action="#">
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="choose-item-1" name="choose-item">
+                        <label for="choose-item-1">S <span>(12)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="choose-item-2" name="choose-item">
+                        <label for="choose-item-2">L <span>(60)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="choose-item-3" name="choose-item">
+                        <label for="choose-item-3">M <span>(41)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="choose-item-4" name="choose-item">
+                        <label for="choose-item-4">XXL <span>(28)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="choose-item-5" name="choose-item">
+                        <label for="choose-item-5">2XL <span>(21)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="choose-item-7" name="choose-item">
+                        <label for="choose-item-7">3XL <span>(62)</span></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="product-widget mb-30">
+            <h5 class="pt-title">انتخاب برند</h5>
+            <div class="widget-category-list mt-20">
+                <form action="#">
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="brand-item-1" name="brand-item">
+                        <label for="brand-item-1">سامسونگ <span>(12)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="brand-item-2" name="brand-item">
+                        <label for="brand-item-2">گوگل <span>(60)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="brand-item-3" name="brand-item">
+                        <label for="brand-item-3">خلاق <span>(41)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="brand-item-4" name="brand-item">
+                        <label for="brand-item-4">حرفه <span>(28)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="brand-item-5" name="brand-item">
+                        <label for="brand-item-5">اپل <span>(21)</span></label>
+                    </div>
+                    <div class="single-widget-category">
+                        <input type="checkbox" id="brand-item-7" name="brand-item">
+                        <label for="brand-item-7">ال جی <span>(62)</span></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tab-content" id="productGridTabContent">
+        <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
+            <div class="tp-wrapper">
+                {% for product in products %}
+                    {% include 'includes/product_item_partial.html' with product=product %}
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="tab-pane fade" id="FiveCol" role="tabpanel" aria-labelledby="FiveCol-tab">
+            <div class="tp-wrapper-2">
+                <div class="single-item-pd">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9">
+                            <div class="single-features-item single-features-item-df b-radius mb-20">
+                                <div class="row  g-0 align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="features-thum">
+                                            <div class="features-product-image w-img">
+                                                <a href="product-details.html"><img src="/static/img/product/sm-1.jpg"
+                                                                                    alt=""></a>
+                                            </div>
+                                            <div class="product__offer">
+                                                <span class="discount">-15%</span>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
+                                                    <i class="fal fa-eye"></i>
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-heart"></i>
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-layer-group"></i>
+                                                    <i class="fal fa-layer-group"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="product__content product__content-d">
+                                            <h6><a href="product-details.html">کوله پشتی چرم کلاسیک روز 2022</a></h6>
+                                            <div class="rating mb-5">
+                                                <ul class="rating-d">
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                </ul>
+                                                <span>(01 نظر)</span>
+                                            </div>
+                                            <div class="features-des">
+                                                <ul>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صدای
+                                                        باس و استریو.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صفحه
+                                                        نمایش با وضوح 3088 در 1440 پیکسل.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        حافظه،
+                                                        ذخیره سازی و تقویت سیم کارت: 12 گیگابایت رم، 256 گیگابایت.</a>
+                                                    </li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        سیستم
+                                                        عامل اندروید نسخه 10.0.</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="product-stock mb-15">
+                                <h5>موجودی: <span> 940 موجود</span></h5>
+                                <h6>$220.00 -
+                                    <del> $240.00</del>
+                                </h6>
+                            </div>
+                            <div class="stock-btn ">
+                                <button type="button"
+                                        class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                    افزودن به سبد
+                                </button>
+                                <button type="button"
+                                        class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                        data-bs-toggle="modal" data-bs-target="#productModalId">
+                                    مشاهده سریع
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-item-pd">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9">
+                            <div class="single-features-item single-features-item-df b-radius mb-20">
+                                <div class="row  g-0 align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="features-thum">
+                                            <div class="features-product-image w-img">
+                                                <a href="product-details.html"><img src="/static/img/product/sm-2.jpg"
+                                                                                    alt=""></a>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
+                                                    <i class="fal fa-eye"></i>
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-heart"></i>
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-layer-group"></i>
+                                                    <i class="fal fa-layer-group"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="product__content product__content-d">
+                                            <h6><a href="product-details.html">سامسونگ گلکسی A70 128 گیگابایتی دو سیم
+                                                کارته</a></h6>
+                                            <div class="rating mb-5">
+                                                <ul class="rating-d">
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                </ul>
+                                                <span>(01 نظر)</span>
+                                            </div>
+                                            <div class="features-des">
+                                                <ul>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صدای
+                                                        باس و استریو.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صفحه
+                                                        نمایش با وضوح 3088 در 1440 پیکسل.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        حافظه،
+                                                        ذخیره سازی و تقویت سیم کارت: 12 گیگابایت رم، 256 گیگابایت.</a>
+                                                    </li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        سیستم
+                                                        عامل اندروید نسخه 10.0.</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="product-stock mb-15">
+                                <h5>موجودی: <span> 940 موجود</span></h5>
+                                <h6>ت216.00</h6>
+                            </div>
+                            <div class="stock-btn ">
+                                <button type="button"
+                                        class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                    افزودن به سبد
+                                </button>
+                                <button type="button"
+                                        class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                        data-bs-toggle="modal" data-bs-target="#productModalId">
+                                    مشاهده سریع
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-item-pd">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9">
+                            <div class="single-features-item single-features-item-df b-radius mb-20">
+                                <div class="row  g-0 align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="features-thum">
+                                            <div class="features-product-image w-img">
+                                                <a href="product-details.html"><img src="/static/img/product/sm-3.jpg"
+                                                                                    alt=""></a>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
+                                                    <i class="fal fa-eye"></i>
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-heart"></i>
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-layer-group"></i>
+                                                    <i class="fal fa-layer-group"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="product__content product__content-d">
+                                            <h6><a href="product-details.html">قهوه ساز AH240a با عملکرد کامل</a></h6>
+                                            <div class="rating mb-5">
+                                                <ul class="rating-d">
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                </ul>
+                                                <span>(01 نظر)</span>
+                                            </div>
+                                            <div class="features-des">
+                                                <ul>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صدای
+                                                        باس و استریو.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صفحه
+                                                        نمایش با وضوح 3088 در 1440 پیکسل.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        حافظه،
+                                                        ذخیره سازی و تقویت سیم کارت: 12 گیگابایت رم، 256 گیگابایت.</a>
+                                                    </li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        سیستم
+                                                        عامل اندروید نسخه 10.0.</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="product-stock mb-15">
+                                <h5>موجودی: <span> 940 موجود</span></h5>
+                                <h6>$125.00</h6>
+                            </div>
+                            <div class="stock-btn ">
+                                <button type="button"
+                                        class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                    افزودن به سبد
+                                </button>
+                                <button type="button"
+                                        class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                        data-bs-toggle="modal" data-bs-target="#productModalId">
+                                    مشاهده سریع
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-item-pd">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9">
+                            <div class="single-features-item single-features-item-df b-radius mb-20">
+                                <div class="row  g-0 align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="features-thum">
+                                            <div class="features-product-image w-img">
+                                                <a href="product-details.html"><img src="/static/img/product/sm-4.jpg"
+                                                                                    alt=""></a>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
+                                                    <i class="fal fa-eye"></i>
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-heart"></i>
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-layer-group"></i>
+                                                    <i class="fal fa-layer-group"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="product__content product__content-d">
+                                            <h6><a href="product-details.html">صندلی بالشتک نمدی چوبی وارداتی</a></h6>
+                                            <div class="rating mb-5">
+                                                <ul class="rating-d">
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                </ul>
+                                                <span>(01 نظر)</span>
+                                            </div>
+                                            <div class="features-des">
+                                                <ul>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صدای
+                                                        باس و استریو.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صفحه
+                                                        نمایش با وضوح 3088 در 1440 پیکسل.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        حافظه،
+                                                        ذخیره سازی و تقویت سیم کارت: 12 گیگابایت رم، 256 گیگابایت.</a>
+                                                    </li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        سیستم
+                                                        عامل اندروید نسخه 10.0.</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="product-stock mb-15">
+                                <h5>موجودی: <span> 940 موجود</span></h5>
+                                <h6>$160.00</h6>
+                            </div>
+                            <div class="stock-btn ">
+                                <button type="button"
+                                        class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                    افزودن به سبد
+                                </button>
+                                <button type="button"
+                                        class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                        data-bs-toggle="modal" data-bs-target="#productModalId">
+                                    مشاهده سریع
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-item-pd">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9">
+                            <div class="single-features-item single-features-item-df b-radius mb-20">
+                                <div class="row  g-0 align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="features-thum">
+                                            <div class="features-product-image w-img">
+                                                <a href="product-details.html"><img src="/static/img/product/sm-5.jpg"
+                                                                                    alt=""></a>
+                                            </div>
+                                            <div class="product__offer">
+                                                <span class="discount">-15%</span>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
+                                                    <i class="fal fa-eye"></i>
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-heart"></i>
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-layer-group"></i>
+                                                    <i class="fal fa-layer-group"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="product__content product__content-d">
+                                            <h6><a href="product-details.html">چراغ های تزئینی آفتابگیر – وارداتی</a>
+                                            </h6>
+                                            <div class="rating mb-5">
+                                                <ul class="rating-d">
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                </ul>
+                                                <span>(01 نظر)</span>
+                                            </div>
+                                            <div class="features-des">
+                                                <ul>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صدای
+                                                        باس و استریو.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صفحه
+                                                        نمایش با وضوح 3088 در 1440 پیکسل.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        حافظه،
+                                                        ذخیره سازی و تقویت سیم کارت: 12 گیگابایت رم، 256 گیگابایت.</a>
+                                                    </li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        سیستم
+                                                        عامل اندروید نسخه 10.0.</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="product-stock mb-15">
+                                <h5>موجودی: <span> 940 موجود</span></h5>
+                                <h6>$125.00</h6>
+                            </div>
+                            <div class="stock-btn ">
+                                <button type="button"
+                                        class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                    افزودن به سبد
+                                </button>
+                                <button type="button"
+                                        class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                        data-bs-toggle="modal" data-bs-target="#productModalId">
+                                    مشاهده سریع
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-item-pd">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9">
+                            <div class="single-features-item single-features-item-df b-radius mb-20">
+                                <div class="row  g-0 align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="features-thum">
+                                            <div class="features-product-image w-img">
+                                                <a href="product-details.html"><img src="/static/img/product/sm-6.jpg"
+                                                                                    alt=""></a>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
+                                                    <i class="fal fa-eye"></i>
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-heart"></i>
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-layer-group"></i>
+                                                    <i class="fal fa-layer-group"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="product__content product__content-d">
+                                            <h6><a href="product-details.html">ست قابلمه استیل کره ای 5 تیکه</a></h6>
+                                            <div class="rating mb-5">
+                                                <ul class="rating-d">
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                </ul>
+                                                <span>(01 نظر)</span>
+                                            </div>
+                                            <div class="features-des">
+                                                <ul>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صدای
+                                                        باس و استریو.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صفحه
+                                                        نمایش با وضوح 3088 در 1440 پیکسل.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        حافظه،
+                                                        ذخیره سازی و تقویت سیم کارت: 12 گیگابایت رم، 256 گیگابایت.</a>
+                                                    </li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        سیستم
+                                                        عامل اندروید نسخه 10.0.</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="product-stock mb-15">
+                                <h5>موجودی: <span> 940 موجود</span></h5>
+                                <h6>$99</h6>
+                            </div>
+                            <div class="stock-btn ">
+                                <button type="button"
+                                        class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                    افزودن به سبد
+                                </button>
+                                <button type="button"
+                                        class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                        data-bs-toggle="modal" data-bs-target="#productModalId">
+                                    مشاهده سریع
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-item-pd">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9">
+                            <div class="single-features-item single-features-item-df b-radius mb-20">
+                                <div class="row  g-0 align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="features-thum">
+                                            <div class="features-product-image w-img">
+                                                <a href="product-details.html"><img src="/static/img/product/sm-7.jpg"
+                                                                                    alt=""></a>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
+                                                    <i class="fal fa-eye"></i>
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-heart"></i>
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-layer-group"></i>
+                                                    <i class="fal fa-layer-group"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="product__content product__content-d">
+                                            <h6><a href="product-details.html">بطری آب گرم استیل اچ پی</a></h6>
+                                            <div class="rating mb-5">
+                                                <ul class="rating-d">
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                </ul>
+                                                <span>(01 نظر)</span>
+                                            </div>
+                                            <div class="features-des">
+                                                <ul>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صدای
+                                                        باس و استریو.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صفحه
+                                                        نمایش با وضوح 3088 در 1440 پیکسل.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        حافظه،
+                                                        ذخیره سازی و تقویت سیم کارت: 12 گیگابایت رم، 256 گیگابایت.</a>
+                                                    </li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        سیستم
+                                                        عامل اندروید نسخه 10.0.</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="product-stock mb-15">
+                                <h5>موجودی: <span> 940 موجود</span></h5>
+                                <h6>$125.00</h6>
+                            </div>
+                            <div class="stock-btn ">
+                                <button type="button"
+                                        class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                    افزودن به سبد
+                                </button>
+                                <button type="button"
+                                        class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                        data-bs-toggle="modal" data-bs-target="#productModalId">
+                                    مشاهده سریع
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-item-pd">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9">
+                            <div class="single-features-item single-features-item-df b-radius mb-20">
+                                <div class="row  g-0 align-items-center">
+                                    <div class="col-md-4">
+                                        <div class="features-thum">
+                                            <div class="features-product-image w-img">
+                                                <a href="product-details.html"><img src="/static/img/product/sm-8.jpg"
+                                                                                    alt=""></a>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
+                                                    <i class="fal fa-eye"></i>
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-heart"></i>
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                                <a href="#" class="icon-box icon-box-1">
+                                                    <i class="fal fa-layer-group"></i>
+                                                    <i class="fal fa-layer-group"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="product__content product__content-d">
+                                            <h6><a href="product-details.html">لورم ایپسوم متن ساختگی با تولید سادگی</a>
+                                            </h6>
+                                            <div class="rating mb-5">
+                                                <ul class="rating-d">
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                </ul>
+                                                <span>(01 نظر)</span>
+                                            </div>
+                                            <div class="features-des">
+                                                <ul>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صدای
+                                                        باس و استریو.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        صفحه
+                                                        نمایش با وضوح 3088 در 1440 پیکسل.</a></li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        حافظه،
+                                                        ذخیره سازی و تقویت سیم کارت: 12 گیگابایت رم، 256 گیگابایت.</a>
+                                                    </li>
+                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i>
+                                                        سیستم
+                                                        عامل اندروید نسخه 10.0.</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="product-stock mb-15">
+                                <h5>موجودی: <span> 940 موجود</span></h5>
+                                <h6>ت135.00</h6>
+                            </div>
+                            <div class="stock-btn ">
+                                <button type="button"
+                                        class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                    افزودن به سبد
+                                </button>
+                                <button type="button"
+                                        class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                        data-bs-toggle="modal" data-bs-target="#productModalId">
+                                    مشاهده سریع
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-widget mb-30">
+        <div class="product-widget mb-30">
+            <h5 class="pt-title">فیلتر قیمت</h5>
+            <div class="price__slider mt-30">
+                <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                    <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div>
+                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span
+                        tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;"></span>
+                </div>
+                <div>
+                    <form action="#" class="s-form mt-20">
+                        <input type="text" id="amount" readonly="">
+                        <button type="submit" class="tp-btn-square-lg">فیلتر</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}

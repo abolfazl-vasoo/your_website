@@ -1,0 +1,168 @@
+{% extends 'shared/_layout.html' %}
+
+{% block content %}
+    <main>
+        <!-- page-banner-area-start -->
+        <div class="page-banner-area page-banner-height-2" data-background="/static/img/banner/page-banner-4.jpg"
+             style="background-image: url('/static/img/banner/page-banner-4.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="page-banner-content text-center">
+                            <h4 class="breadcrumb-title">حساب من</h4>
+                            <div class="breadcrumb-two">
+                                <nav>
+                                    <nav class="breadcrumb-trail breadcrumbs">
+                                        <ul class="breadcrumb-menu">
+                                            <li class="breadcrumb-trail">
+                                                <a href="index.html"><span>خانه</span></a>
+                                            </li>
+                                            <li class="trail-item">
+                                                <span>حساب من</span>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page-banner-area-end -->
+
+        <!-- account-area-start -->
+        <div class="account-area mt-70 mb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="basic-login mb-50">
+                            <h5>ورود</h5>
+                            <form method="post" action="{% url 'login_page' %}">
+                                {% csrf_token %}
+
+                                {#{{ login_form }}#}
+
+                                {{ login_form.email.label_tag }}
+                                {{ login_form.email }}
+                                {{ login_form.email.errors }}
+                                {{ login_form.password.label_tag }}
+                                {{ login_form.password }}
+                                {{ login_form.password.errors }}
+                                <p><a href="#">زر عبور خود را فراموش کرده اید؟</a></p>
+                                {#                                <label for="name">ایمیل یا نام کاربری <span>*</span></label>#}
+                                {#                                <input id="name" type="text" placeholder="نام کاربری">#}
+                                {#                                <label for="pass">رمز عبور <span>*</span></label>#}
+                                {#                                <input id="pass" type="password" placeholder="رمز عبور...">#}
+                                {#                                <div class="login-action mb-10 fix">#}
+                                {#                                    <span class="log-rem f-left">#}
+                                {#                                       <input id="remember" type="checkbox">#}
+                                {#                                       <label for="remember">مرا بخاطر بسپار</label>#}
+                                {#                                    </span>#}
+                                {#                                    <span class="forgot-login f-right">#}
+                                {#                                       <a href="#">فراموشی رمز؟</a>#}
+                                {#                                    </span>#}
+
+                                <button type="submit" class="btn btn-default"><a href="#" class="tp-in-btn w-100">ورود</a></button>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="basic-login">
+                            <h5>ثبت نام</h5>
+                            <form method="post" action="{% url 'register_page' %}">
+                                {#                                <label for="username">ایمیل یا نام کاربری <span>*</span></label>#}
+                                {#                                <input id="username" type="text" placeholder="نام کاربری">#}
+                                {#                                <label for="email-id">آدرس ایمیل <span>*</span></label>#}
+                                {#                                <input id="email-id" type="text" placeholder="آدرس ایمیل...">#}
+                                {#                                <label for="userpass">رمز عبور <span>*</span></label>#}
+                                {#                                <input id="userpass" type="password" placeholder="رمز عبور...">#}
+                                {#                                <div class="login-action mb-10 fix">#}
+                                {#                                    <p>داده های شخصی شما برای پشتیبانی از تجربه شما در سراسر این وب سایت، مدیریت دسترسی#}
+                                {#                                        به حساب شما، و برای اهداف دیگری که در ما توضیح داده شده است، استفاده خواهد شد.#}
+                                {#                                        <a href="#">حریم خصوصی</a>.</p>#}
+                                {#                                </div>#}
+                                {% csrf_token %}
+
+                                {#{{ register_form }}#}
+
+                                {{ register_form.email.label_tag }}
+                                {{ register_form.email }}
+                                {{ register_form.email.errors }}
+                                {{ register_form.password.label_tag }}
+                                {{ register_form.password }}
+                                {{ register_form.password.errors }}
+                                {#                            {{ register_form.confirm_password.label_tag }}#}
+                                {#                            {{ register_form.confirm_password }}#}
+                                {#                            {{ register_form.confirm_password.errors }}#}
+
+                                {#                            {{ register_form.errors }}#}
+
+                                {#                            <input type="text" placeholder="نام کاربـری">#}
+                                {#                            <input type="email" placeholder="آدرس ایمیـل">#}
+                                {#                            <input type="password" placeholder="رمـز عبـور">#}
+                                <button type="submit" class="btn btn-default">ثبت نام</button>
+                                {#                                <a href="login.html" class="tp-in-btn w-100">ثبت نام</a>#}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- account-area-end -->
+
+        <!-- cta-area-start -->
+        <section class="cta-area d-ldark-bg pt-55 pb-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cta-item cta-item-d mb-30">
+                            <h5 class="cta-title">دنبال کنید</h5>
+                            <p>ما یکپارچه سازی، بازاریابی و ردیابی وب سایت رسانه های اجتماعی شما را آسان می کنیم.</p>
+                            <div class="cta-social">
+                                <div class="social-icon">
+                                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                                    <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="rss"><i class="fas fa-rss"></i></a>
+                                    <a href="#" class="dribbble"><i class="fab fa-dribbble"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cta-item mb-30">
+                            <h5 class="cta-title">ثبت نام خبرنامه</h5>
+                            <p>به بیش از 60000 مشترک بپیوندید و هر شنبه یک کوپن تخفیف جدید دریافت کنید.</p>
+                            <div class="subscribe__form">
+                                <form action="#">
+                                    <input type="email" placeholder="آدرس ایمیل شما...">
+                                    <button>اشتراک</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cta-item mb-30">
+                            <h5 class="cta-title">دانلود اپ</h5>
+                            <p>اپلیکیشن DukaMarket اکنون در اپ استور و گوگل پلی در دسترس است. اکنون آن را دریافت
+                                کنید.</p>
+                            <div class="cta-apps">
+                                <div class="apps-store">
+                                    <a href="#"><img src="/static/img/brand/app_ios.png" alt=""></a>
+                                    <a href="#"><img src="/static/img/brand/app_android.png" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- cta-area-end -->
+
+    </main>
+
+{% endblock %}
